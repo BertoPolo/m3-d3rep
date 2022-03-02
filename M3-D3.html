@@ -646,5 +646,29 @@
       integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      const fetchImages = (query) => {
+        fetch("https://api.pexels.com/v1/search?query=" + query),
+          {
+            headers: new Headers({
+              Authorization:
+                "Bearer 563492ad6f917000010000012e9e1ac0ffd04a79a7b0cbf48af7336e",
+              "Content-Type": "application/json",
+            })
+              .then((response) => {
+                return response.json();
+              })
+              .then((data) => {
+                console.log(data);
+              }),
+              .catch((err) => console.log(err))
+          };
+      };
+
+      /* window.onload = function () {
+        fetchImages("cat");
+      }; */
+    </script>
   </body>
 </html>
