@@ -283,8 +283,8 @@
                       <button
                         type="button"
                         class="btn btn-sm btn-outline-secondary hideButton"
-                        
-                        
+
+
                       >
                         Hide
                       </button>
@@ -313,10 +313,21 @@
             console.log(data);
 
             const rowNode = document.getElementById("rowClave");
-            const button = document.querySelector(".hideButton");
+            /*  const button = document.querySelector(".hideButton");
+            const card1 = document.getElementsByClassName("card1");
+            for (let i = 0; i < card1.length; i++) {
+              button.addEventListener("onclick", function () {
+                card1[i].classList.add("d-none");
+              });
+            } */
+
             for (let i = 0; i < 3; i++) {
+              const toDelete = () => {
+                const cardNode = document.getElementsByClassName(`card${i}`);
+                cardNode.classList.add("d-none");
+              };
               rowNode.innerHTML += `
-            <div class="col-md-4">
+            <div class="col-md-4 card${i}">
               <div class="card mb-4 shadow-sm">
                 <img style="height:300px;width:400px" src="${data.photos[i].src.medium}" alt="">
 
@@ -345,6 +356,7 @@
                       <button
                         type="button"
                         class="btn btn-sm btn-outline-secondary hideButton"
+                        onclick="toDelete()"
                       >
                         Hide
                       </button>
